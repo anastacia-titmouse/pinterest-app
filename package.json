@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://anastacia-titmouse.github.io/pinterest-app",
   "scripts": {
-    "start": "parcel src/*.html",
+    "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /pinterest-app/",
     "build:locally": "parcel build src/*.html --no-source-maps"
   },
