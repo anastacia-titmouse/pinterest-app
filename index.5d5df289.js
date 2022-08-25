@@ -1,2 +1,0 @@
-var desks=[{id:1,name:"desk1"},{id:2,name:"desk2"},{id:3,name:"desk3"}],renderDeskSelectorOptions=function(){var e=document.getElementById("desk_selector");desks.map((function(n){var d=document.createElement("OPTION");d.value=n.id,d.innerHTML=n.name,e.appendChild(d)}))};document.addEventListener("DOMContentLoaded",(function(){renderDeskSelectorOptions()}));
-//# sourceMappingURL=index.5d5df289.js.map
