@@ -6,19 +6,49 @@
             </div>
             <div class="board-header__nav">
                 <ul class="board-header__nav-list">
-                    <li class="board-header__nav-item">Ваш профиль</li>
-                    <li class="board-header__nav-item">Главная</li>
+                    <li class="board-header__nav-item">
+                        <a class="board-header__nav-item" href="">Ваш профиль</a> </li>
+                    <li class="board-header__nav-item">
+                        <a  class="board-header__nav-link" href="">Главная</a> </li>
                     <!-- <li class="board-header__nav-item">Ваш профиль</li> -->
                 </ul>
                 <div class="board-header__list-check--wrap">
                     <select class="list-check">
-                        <option value="title-option">Все доски</option>
-                        <option value="option-first">Доска 1</option>
-                        <option value="option-second">Доска 2</option>
-                        <option value="option-therd">Доска 3</option>
+                        <option class="list-check__item" value="title-option">Все доски</option>
+                        <option class="list-check__item" value="option-first">Доска 1</option>
+                        <option class="list-check__item" value="option-second">Доска 2</option>
+                        <option class="list-check__item" value="option-therd">Доска 3</option>
                     </select>
-                </в>
+                </div>
             </div>
         </div>
-    </div>
+    </div>    
+</section>
+<section class="board-body--wrap">
+    <div class="container">
+        <div class="board-body__block">
+            <h2 class="board-body__title">Наименование доски (вводится пользователем при создании) </h2>
+            <!-- счетчик пинов как сделать? -->
+            <button class="button "> ...</button>
+            <div class="board-body__list--wrap">
+                    <select class="list-check">
+                        <option class="list-check__item" value="title-option">Редактирование доски</option>
+                        <option class="list-check__item" value="option-first">Наименование</option>
+                        <option class="list-check__item" value="option-second">Описание</option>
+                        <option class="list-check__item" value="option-therd">Удалить доску</option>
+                    </select>
+            </div>
+            <div class="board-body__board-wrap">
+                <div class="board-body__pin">
+                    <img  class="board-body__pin-img" src="" alt="">
+                </div>
+                <div class="board-body__pin">
+                    <img  class="board-body__pin-img" src="" alt="">
+                </div>
+                <div class="board-body__pin">
+                    <img  class="board-body__pin-img" src="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>    
 </section>
