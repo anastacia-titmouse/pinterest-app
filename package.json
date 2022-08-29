@@ -19,9 +19,6 @@
     "url": "https://github.com/anastacia-titmouse/pinterest-app/issues"
   },
   "dependencies": {
-    "@parcel/codeframe": "^2.7.0",
-    "@parcel/reporter-cli": "^2.7.0",
-    "@parcel/utils": "^2.7.0",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
