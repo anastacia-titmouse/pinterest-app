@@ -1,5 +1,6 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 .example {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.5;
@@ -28,13 +29,108 @@
 
 .complaint-menu {
   width: 500px;
-  height: 1000px;
   background-color: black;
-  color: white;
-  padding: 10px 15px 10px 15px;
-  font-family: "Open Sans", sans-serif;
+  color: #7CEEFF;
+  padding: 10px 15px 30px 15px;
+  font-family: "Monserrat", sans-serif;
   font-size: 24px;
+  border-radius: 25px;
 }
 .complaint-menu__title {
   text-align: center;
+  font-family: "Monserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+}
+.complaint-menu__item-desc {
+  font-family: "Monserrat", sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.complaint-menu__item {
+  padding: 5px;
+}
+.complaint-menu__list {
+  color: white;
+  height: 600px;
+  overflow: auto;
+}
+
+.custom-chekbox > input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.custom-chekbox > span {
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.custom-chekbox > span::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+.custom-chekbox > input:not(:disabled):not(:checked) + span:hover::before {
+  border-color: #b3d7ff;
+}
+.custom-chekbox > input:not(:disabled):active + span::before {
+  background-color: #b3d7ff;
+  border-color: #b3d7ff;
+}
+.custom-chekbox > input:focus + span::before {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.custom-chekbox > input:focus:not(:checked) + span::before {
+  border-color: #80bdff;
+}
+.custom-chekbox > input:checked + span::before {
+  border-color: #7CEEFF;
+  background-color: #7CEEFF;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+.custom-chekbox > input:disabled + span::before {
+  background-color: #e9ecef;
+}
+
+.btn {
+  font-family: "Monserrat", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: black;
+  border: none;
+  display: inline-block;
+  transition: background-color 0.2s linear, color 0.2s linear;
+  text-transform: capitalize;
+  background-color: #7CEEFF;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+}
+.btn:hover {
+  background-color: #c9f3fa;
+  cursor: pointer;
+}
+.btn--close {
+  margin-top: 30px;
+}
+.btn--next {
+  margin-top: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }/*# sourceMappingURL=index.css.map */
