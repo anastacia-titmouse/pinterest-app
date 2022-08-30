@@ -1,1 +1,6 @@
-@import '~node_modules/modern-normalize/modern-normalize.css';/*# sourceMappingURL=index.css.map */
+@import '~node_modules/modern-normalize/modern-normalize.css';
+.red {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+}/*# sourceMappingURL=index.css.map */
