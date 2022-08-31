@@ -1,1 +1,13 @@
-// TODO styles for header
+// TODO styles for header.header {
+.header {
+    &__container {
+        display: flex;
+    }
+
+    &__search {
+
+        &-title {
+            color: red;
+        }
+    }
+}

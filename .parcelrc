@@ -5,5 +5,15 @@
   "reporters": [
     "...",
     "parcel-reporter-clean-dist"
-  ]
+  ],
+  "transformers": {
+    "*.css": [
+      "@parcel/transformer-css-experimental"
+    ]
+  },
+  "optimizers": {
+    "*.css": [
+      "@parcel/optimizer-css"
+    ]
+  }
 }

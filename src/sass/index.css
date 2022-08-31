@@ -1,6 +1,13 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-.red {
+.header__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header__search-title {
+  color: red;
+}
+
+* {
   background-color: red;
-  width: 100px;
-  height: 100px;
 }/*# sourceMappingURL=index.css.map */

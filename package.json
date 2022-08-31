@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://anastacia-titmouse.github.io/pinterest-app",
   "scripts": {
-    "dev": "parcel src/*.html",
+    "dev": "parcel src/index.html",
     "build": "parcel build src/*.html --public-url /pinterest-app/",
     "build:locally": "parcel build src/*.html --no-source-maps"
   },
@@ -25,8 +25,9 @@
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.6.0",
-    "parcel": "^2.6.0",
+    "@parcel/transformer-css-experimental": "^2.3.2",
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
