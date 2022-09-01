@@ -1,7 +1,6 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 .header__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .header__search-title {
@@ -10,4 +9,143 @@
 
 * {
   background-color: red;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.complaint-modal {
+  width: 540px;
+  background-color: black;
+  color: #7CEEFF;
+  padding: 10px 15px 30px 15px;
+  font-family: "Monserrat", sans-serif;
+  font-size: 24px;
+  border-radius: 25px;
+}
+.complaint-modal__title {
+  text-align: center;
+  font-family: "Monserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  background-color: black;
+}
+.complaint-modal__title--wrapper {
+  padding: 20px;
+}
+.complaint-modal__item-subdesc {
+  font-family: "Monserrat", sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 30px;
+}
+.complaint-modal__item-desc {
+  font-family: "Monserrat", sans-serif;
+  font-size: 18px;
+}
+.complaint-modal__item {
+  padding: 5px;
+}
+.complaint-modal__list {
+  color: white;
+  height: 600px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.complaint-modal__radio {
+  min-width: 20px;
+  min-height: 20px;
+  margin: 5px 5px 5px 5px;
+  cursor: pointer;
+}
+.complaint-modal__cause {
+  display: flex;
+  align-items: center;
+}
+.complaint-modal__cause > input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.complaint-modal__cause > input:not(:disabled):not(:checked) + p:hover::before {
+  border-color: #b3d7ff;
+}
+.complaint-modal__cause > input:not(:disabled):active + p::before {
+  background-color: #b3d7ff;
+  border-color: #b3d7ff;
+}
+.complaint-modal__cause > input:focus + p::before {
+  box-shadow: 0 0 0 0.2rem rgba(120, 234, 247, 0.25);
+}
+.complaint-modal__cause > input::focus:not(:checked) + p::before {
+  border-color: #80bdff;
+}
+.complaint-modal__cause > input:checked + p::before {
+  border-color: #7CEEFF;
+  background-color: #7CEEFF;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+.complaint-modal__cause > input:disabled + p::before {
+  background-color: #e9ecef;
+}
+.complaint-modal__cause > p {
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.complaint-modal__cause > p::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.btn {
+  font-family: "Monserrat", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: black;
+  border: none;
+  display: inline-block;
+  transition: background-color 0.2s linear, color 0.2s linear;
+  text-transform: capitalize;
+  background-color: #7CEEFF;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+}
+.btn:hover {
+  background-color: #c9f3fa;
+  cursor: pointer;
+}
+.btn--close {
+  margin-top: 30px;
+}
+.btn--next {
+  margin-top: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: black;
 }/*# sourceMappingURL=index.css.map */

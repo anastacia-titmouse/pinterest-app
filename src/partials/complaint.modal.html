@@ -1,6 +1,104 @@
-<div id="complaint_modal">
-    <!-- TODO header of modal -->
+<link rel="stylesheet" href="../sass/index.css">
+<!-- TODO header of modal -->
+<div class="complaint-modal">
+    <div class="complaint-modal__title--wrapper">
+        <p class="complaint-modal__title">Жалоба на пин</p>
+    </div>
     <!-- TODO items -->
-    <!-- TODO modal actions (cancel btn with id = "complaint_modal_cancel", send btn with id = "complaint_modal_send") -->
-    <button id="complaint_modal_cancel"></button>
+    <div class="complaint-modal__list">
+
+
+
+        <div class="complaint-modal__item">
+            <label class="complaint-modal__cause">
+                <input type="radio" class="complaint-modal__radio">
+                <p class="complaint-modal__item-desc">Спам</p>
+            </label>
+            <p class="complaint-modal__item-subdesc">Вводящие в заблуждение или повторяющиеся публикации</p>
+        </div>
+
+
+        <div class="complaint-modal__item">
+            <label class="complaint-modal__cause">
+                <input type="radio" class="complaint-modal__radio">
+                <p class="complaint-modal__item-desc">Изображение обнаженного тела или порнография</p>
+            </label>
+            <p class="complaint-modal__item-subdesc">Содержимое сексуального характера</p>
+        </div>
+
+
+        <div class="complaint-modal__item">
+            <label class="complaint-modal__cause">
+                <input type="radio" class="complaint-modal__radio">
+                <p class="complaint-modal__item-desc">Членовредительство</p>
+            </label>
+            <p class="complaint-modal__item-subdesc">Расстройства пищевого поведения, нанесение травм себе, суициид</p>
+        </div>
+
+
+        <div class="complaint-modal__item">
+            <label class="complaint-modal__cause">
+                <input type="radio" class="complaint-modal__radio">
+                <p class="complaint-modal__item-desc">Ложная информация</p>
+            </label>
+            <p class="complaint-modal__item-subdesc">Ложная информация о здоровье, климате, голосованиях или теории заговора</p>
+        </div>
+
+
+        <div class="complaint-modal__item">
+            <label class="complaint-modal__cause">
+                <input type="radio" class="complaint-modal__radio">
+                <p class="complaint-modal__item-desc">Агрессивные действия</p>
+            </label>
+            <p class="complaint-modal__item-subdesc">Предрассудки, стереотипы, идея превосходства белой расы, оскорбления</p>
+        </div>
+
+
+        <div class="complaint-modal__item">
+            <label class="complaint-modal__cause">
+                <input type="radio" class="complaint-modal__radio">
+                <p class="complaint-modal__item-desc">Опасные товары</p>
+            </label>
+            <p class="complaint-modal__item-subdesc">Наркотики, оружие, регулируемые товары</p>
+        </div>
+
+
+        <div class="complaint-modal__item">
+            <label class="complaint-modal__cause">
+                <input type="radio" class="complaint-modal__radio">
+                <p class="complaint-modal__item-desc">Преследование или нарушение конфиденциальности</p>
+            </label>
+            <p class="complaint-modal__item-subdesc">Оскорбления, угрозы, публикация персональных данных</p>
+        </div>
+
+
+        <div class="complaint-modal__item">
+            <label class="complaint-modal__cause">
+                <input type="radio" class="complaint-modal__radio">
+                <p class="complaint-modal__item-desc">Сцены насилия</p>
+            </label>
+            <p class="complaint-modal__item-subdesc">Графическое изображение или пропоганда насилия</p>
+        </div>
+
+
+        <div class="complaint-modal__item">
+            <label class="complaint-modal__cause">
+                    <input type="radio" class="complaint-modal__radio">
+                    <p class="complaint-modal__item-desc">Это моя интелектуальная собственность</p>
+            </label>
+            <p class="complaint-modal__item-subdesc">Нарушение авторских прав или прав на товарный знак</p>
+        </div>
+    </div>
+
+<!-- TODO modal actions (cancel btn with id = "complaint_modal_cancel", send btn with id = "complaint_modal_send") -->
+    <div class="buttons">
+        <button class="btn btn--close">Close</button>
+        <button class="btn btn--next">Send</button>
+    </div>
+
+
 </div>
+
+
+
+
