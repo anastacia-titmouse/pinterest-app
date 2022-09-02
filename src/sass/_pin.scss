@@ -1,0 +1,46 @@
+.pin-actions-wrapper {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background-color: rgba(255,255,255, 0.5);
+
+    .pin-actions {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+        .pin-btn{ 
+            width: 100%;
+            height: 30px;
+            border-radius: 3px;
+            border: none;
+            outline: none;
+            margin: 5px 0;
+            color: #ffffff;
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            text-transform: capitalize;
+
+            &:hover {
+                font-weight: 600;
+            }
+
+            &.add-pin {
+                background-color: greenyellow;
+            }
+
+            &.complaint-pin {
+                background-color: tomato;
+            }
+        }
+    }
+}
+
+.board-list__pin:hover .pin-actions-wrapper {
+    display: block;
+}

@@ -46,10 +46,8 @@ a {
 }
 
 .container {
-  width: 1360px;
   margin: 0 auto;
-  padding: 0 40px;
-  border: 2px solid blueviolet;
+  padding: 0 10px;
 }
 
 .header__container {
@@ -59,60 +57,6 @@ a {
 }
 .header__search-title {
   color: red;
-}
-
-.board-header--wrap {
-  border: 2px solid blueviolet;
-}
-.board-header__nav-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-.board-header__nav-logo {
-  width: 90px;
-  height: 100px;
-  background-color: aqua;
-}
-.board-header__nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.board-header__nav-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: rgb(43, 226, 89);
-}
-.board-header__nav-item, .board-header__nav-link {
-  padding: 20px;
-  margin-right: 25px;
-  font-family: "Lora", sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-}
-.board-header__nav-item:hover, .board-header__nav-link:hover {
-  color: rgb(92, 14, 14);
-  -webkit-transform: scale(1.1, 1.1);
-          transform: scale(1.1, 1.1);
 }
 
 .list-check {
@@ -212,8 +156,7 @@ a {
   display: grid;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  grid-template-columns: repeat(3, 33%);
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
 }
 .board-list__pin {
@@ -229,13 +172,17 @@ a {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  overflow: hidden;
 }
 .board-list__pin-img {
-  width: 99%;
+  width: 100%;
   max-height: 100%;
-  background-size: cover;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 1px solid grey;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .board-list__list-check {
   position: absolute;
@@ -313,4 +260,53 @@ a {
 
 .list-check__for-pin {
   width: 150px;
+}
+
+.pin-actions-wrapper {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.pin-actions-wrapper .pin-actions {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.pin-actions-wrapper .pin-actions .pin-btn {
+  width: 100%;
+  height: 30px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  margin: 5px 0;
+  color: #ffffff;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
+}
+.pin-actions-wrapper .pin-actions .pin-btn:hover {
+  font-weight: 600;
+}
+.pin-actions-wrapper .pin-actions .pin-btn.add-pin {
+  background-color: greenyellow;
+}
+.pin-actions-wrapper .pin-actions .pin-btn.complaint-pin {
+  background-color: tomato;
+}
+
+.board-list__pin:hover .pin-actions-wrapper {
+  display: block;
 }/*# sourceMappingURL=index.css.map */

@@ -1,45 +1,27 @@
 <section class="board-body--wrap">
     <div class="container">
         <div class="board-body__block">
-            <div class="board-body__title-wrap">
-                <h2 class="board-body__title">Наименование доски  </h2>
-                <p class="board-body__title-note">(вводится пользователем при создании)</p>
-            </div>
-            
-            <!-- счетчик пинов как сделать? -->
-            <div class="dropdown">
-                <button class="dropbtn"><span class="dropbtn-span">...</span></button>
-                <div class="dropdown-content">
-                <option class="list-check__item">Редактирование доски</option>
-                <option class="list-check__item">Наименование</option>
-                <option class="list-check__item">Описание</option>
-                <option class="list-check__item">Удалить доску</option>
-                </div>
-            </div>
             </div>
                 <div class="board-list--grid-wrap">
                     <div class="board-list--wrap">
                         <div class="board-list__pin">
                             <img  class="board-list__pin-img" src='./images/img1.jpg' alt="">
-                            <figcaption class="board-list__name-pin">Thumbprint Dandelion Craft</figcaption>
-                            <div class="board-list__list-check">
-                                <select class="list-check list-check__for-pin">
-                                    <option class="list-check__item list-check__item-active " value="title-option">Ваши доски</option>
-                                    <option class="list-check__item" value="option-first">Все доски</option>
-                                    <option class="list-check__item" value="option-first">Доска 1</option>
-                                    <option class="list-check__item" value="option-second">Доска 2</option>
-                                    <option class="list-check__item" value="option-therd">Доска 3</option>
-                                </select>
+                            <!-- FIXME use BEM -->
+                            <div class="pin-actions-wrapper">
+                                <div class="pin-actions">
+                                    <button class="pin-btn add-pin">Добавить</button>
+                                    <button class="pin-btn complaint-pin">Пожаловаться</button>
+                                </div>
                             </div>
-                            <div class="button button__btn-save--wrap">
-                                <button class="button button__btn-save"><span class="">Сохранить</span> </button>
-                            </div>
-                            <div class="board-list__icon-save">
-                                <svg class="" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M11 40q-1.2 0-2.1-.9Q8 38.2 8 37v-7.15h3V37h26v-7.15h3V37q0 1.2-.9 2.1-.9.9-2.1.9Zm13-7.65-9.65-9.65 2.15-2.15 6 6V8h3v18.55l6-6 2.15 2.15Z"/></svg>
-                            </div>
-                            <div class="board-list__icon-edit">
-                                <svg class="" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M9 39h2.2l22.15-22.15-2.2-2.2L9 36.8Zm30.7-24.3-6.4-6.4 2.1-2.1q.85-.85 2.1-.85t2.1.85l2.2 2.2q.85.85.85 2.1t-.85 2.1Zm-2.1 2.1L12.4 42H6v-6.4l25.2-25.2Zm-5.35-1.05-1.1-1.1 2.2 2.2Z"/></svg>
-                            </div>
+                        </div>
+                        <div class="board-list__pin">
+                            <img  class="board-list__pin-img" src='./images/img2.jpg' alt="">
+                        </div>
+                        <div class="board-list__pin">
+                            <img  class="board-list__pin-img" src='./images/img2.jpg' alt="">
+                        </div>
+                        <div class="board-list__pin">
+                            <img  class="board-list__pin-img" src='./images/img2.jpg' alt="">
                         </div>
                         <div class="board-list__pin">
                             <img  class="board-list__pin-img" src='./images/img2.jpg' alt="">
