@@ -288,8 +288,8 @@ a {
 .pin-actions-wrapper .pin-actions .pin-btn {
   width: 100%;
   height: 30px;
-  border-radius: 3px;
-  border: none;
+  border-radius: 5px;
+  border: 1px solid #39C0D4;
   outline: none;
   margin: 5px 0;
   color: #ffffff;
@@ -298,15 +298,61 @@ a {
   text-transform: capitalize;
 }
 .pin-actions-wrapper .pin-actions .pin-btn:hover {
-  font-weight: 600;
+  -webkit-box-shadow: 0px 0px 10px 0.5px #39C0D4;
+          box-shadow: 0px 0px 10px 0.5px #39C0D4;
 }
 .pin-actions-wrapper .pin-actions .pin-btn.add-pin {
-  background-color: greenyellow;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1797A8), to(#00C2CB));
+  background: linear-gradient(180deg, #1797A8 0%, #00C2CB 100%);
+  font-family: "Century Gothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.12em;
 }
 .pin-actions-wrapper .pin-actions .pin-btn.complaint-pin {
-  background-color: tomato;
+  background-color: rgba(30, 30, 30, 0.85);
+  color: #00C2CB;
+  font-family: "Century Gothic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.12em;
 }
 
 .board-list__pin:hover .pin-actions-wrapper {
   display: block;
+}
+
+#create_board_modal {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#create_board_modal .create-board-modal-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#create_board_modal .create-board-modal-background .create-board-model-wrapper {
+  width: 70%;
+  height: 50%;
+  background-color: #ffffff;
+  position: relative;
+}
+#create_board_modal .create-board-modal-background .create-board-model-wrapper #close_create_board_modal {
+  position: absolute;
+  right: 0;
+  top: 0;
 }/*# sourceMappingURL=index.css.map */

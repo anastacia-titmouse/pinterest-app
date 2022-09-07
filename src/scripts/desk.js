@@ -1,6 +1,28 @@
 import { showComplaintModal } from "./complaint.modal";
 import { showSelectBoardModal } from "./select.desk.modal";
 
+export const updateDesksModels = (deskId, deskTitle, active) => {
+    const desksModels= getDesksModels()
+
+    desksModels[deskId] = {
+        title: deskTitle,
+        active
+    }
+
+    localStorage.setItem('desks', JSON.stringify(desksModels))
+
+    return desksModels
+}
+
+export const getDesksModels = () => {
+    const desksJson = localStorage.getItem('desks')
+    if(!desksJson) {
+        return {}
+    } else {
+        return JSON.parse(desksJson)
+    }
+}
+
 export const fetchPinsByDeskId = (deskId) => {
     // TODO return Array<Pin> (only items with pin.deskId === deskId) from local storage
     // TODO return Array<Pin> from mock.api if deskId === 0 (home "page")
@@ -10,6 +32,12 @@ export const fetchPinsByDeskId = (deskId) => {
 }
 
 export const renderDesk = () => {
+    let desksModels = getDesksModels()
+    if(Object.keys(desksModels).length === 0) {
+        desksModels = updateDesksModels('main', 'Homepage', true)
+    }
+
+    console.log(desksModels)
     // TODO fetch current active desk id
     // TODO fetch cards (use fetchPinsByDeskId(deskId))
     // TODO iterate card, render it into parentElId (use renderCard())
