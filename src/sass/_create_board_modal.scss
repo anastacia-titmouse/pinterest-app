@@ -1,29 +1,40 @@
 #create_board_modal {
-    display: none;
-    position: absolute;
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  .create-board-modal-background{
+    position: relative;
     width: 100%;
     height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .create-board-modal-background{
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .create-board-model-wrapper{
+      width: 70%;
+      height: 50%;
+      background-color: #ffffff;
+      position: relative;
 
-        .create-board-model-wrapper{
-            width: 70%;
-            height: 50%;
-            background-color: #ffffff;
-            position: relative;
+      #close_create_board_modal {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
 
-            #close_create_board_modal {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
+      #crete_board_modal_form {
+        #crete_board_modal_form_error{
+          background: red;
+          display: none;
+
+          &.visible {
+            display: block;
+          }
         }
+      }
     }
+  }
 }

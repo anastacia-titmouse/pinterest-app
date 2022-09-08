@@ -1,16 +1,36 @@
-import { renderDesk } from "./desk";
+import { activateDesk, getDesksModels, renderActiveDesk } from './desk';
 
-export const fetchDesksFromLocalStorage = () => {
-    //TODO fetch desks from localstorage. Return signature: Array<{id: number, name: string}> + hardcoded main (for home "page")
+export const cleanSelect = () => {
+  const select = document.getElementById("desk_selector")
+  select.innerHTML = '';
 }
 
-export const renderDescSelectorItems = (selectorElId) => {
-    // TODO find parent(SELECT elem) by id
-    // TODO iterate desks arr, render elem (OPTION) into parent, set OPTION attributes (selected for current active desk, value: desk.id, innerHTML: desk.name)
-};
+export const renderSelectOptions = () => {
+  const select = document.getElementById("desk_selector")
 
-export const onDeskSelectorChanged = (deskId) => {
-    console.log(deskId);
-    //TODO save deskId into localStorage as currentActiveDesk
-    //TODO invoke renderDesk()
+  const boardModels = getDesksModels()
+  for (let boardId of Object.keys(boardModels)) {
+    const boardModel = boardModels[boardId]
+
+    const optionEl = document.createElement('option')
+    optionEl.setAttribute('value', boardId)
+    optionEl.innerHTML = boardModel.title
+    if (boardModel.active) {
+      optionEl.setAttribute('selected', 'selected')
+    }
+
+    select.appendChild(optionEl)
+  }
 }
+
+export const rerenderSelect = () => {
+  cleanSelect()
+  renderSelectOptions()
+}
+
+export function onDeskSelectorChanged(deskId) {
+  activateDesk(deskId)
+  renderActiveDesk().catch(error => {console.log(error)})
+}
+
+renderSelectOptions()

@@ -1,69 +1,124 @@
-import { showComplaintModal } from "./complaint.modal";
-import { showSelectBoardModal } from "./select.desk.modal";
+import { rerenderSelect as rerenderDesksSelector } from './desk.selector';
 
-export const updateDesksModels = (deskId, deskTitle, active) => {
-    const desksModels= getDesksModels()
-
-    desksModels[deskId] = {
-        title: deskTitle,
-        active
-    }
-
-    localStorage.setItem('desks', JSON.stringify(desksModels))
-
-    return desksModels
+export function activateDesk(deskId) {
+  const desksModels = getDesksModels()
+  for (let _deskId of Object.keys(desksModels)) {
+    desksModels[_deskId].active = deskId === _deskId;
+  }
+  localStorage.setItem('desks', JSON.stringify(desksModels))
 }
 
-export const getDesksModels = () => {
-    const desksJson = localStorage.getItem('desks')
-    if(!desksJson) {
-        return {}
-    } else {
-        return JSON.parse(desksJson)
-    }
+export function addDesksModel(deskId, deskTitle, active) {
+  const desksModels= getDesksModels()
+
+  desksModels[deskId] = {
+    id: deskId,
+    title: deskTitle,
+    active
+  }
+
+  localStorage.setItem('desks', JSON.stringify(desksModels))
+
+  rerenderDesksSelector()
+
+  return desksModels
 }
 
-export const fetchPinsByDeskId = (deskId) => {
+export function getDesksModels() {
+  const desksJson = localStorage.getItem('desks')
+  if(!desksJson) {
+    return {}
+  } else {
+    return JSON.parse(desksJson)
+  }
+}
+
+export async function fetchPinsByDeskId(deskId) {
+  if (deskId === 'main') {
+    const response = await fetch('https://63052f15697408f7edc32802.mockapi.io/api/v1/card', {method: 'get'})
+    return  response.json()
+  } else {
+    console.log('Fetch from localstorage')
     // TODO return Array<Pin> (only items with pin.deskId === deskId) from local storage
-    // TODO return Array<Pin> from mock.api if deskId === 0 (home "page")
-    // return window.fetch('https://63052f15697408f7edc32802.mockapi.io/api/v1/card', {method: 'get'})
-    // .then(response => response.json())
-    // .then(cards => renderCards(cards));
+    return []
+  }
 }
 
-export const renderDesk = () => {
-    let desksModels = getDesksModels()
-    if(Object.keys(desksModels).length === 0) {
-        desksModels = updateDesksModels('main', 'Homepage', true)
-    }
+export async function renderActiveDesk() {
+  const deskElement = document.getElementById('board_list')
+  //Clean desk list
+  deskElement.innerHTML = ''
 
-    console.log(desksModels)
-    // TODO fetch current active desk id
-    // TODO fetch cards (use fetchPinsByDeskId(deskId))
-    // TODO iterate card, render it into parentElId (use renderCard())
+  //Init desk models if needed
+  let desksModels = getDesksModels()
+  if(Object.keys(desksModels).length === 0) {
+    desksModels = addDesksModel('main', 'Homepage', true)
+  }
+
+  //Check active desk
+  const activeDesk = getActiveDesk()
+  if (!activeDesk) {
+    throw new Error('Active desk not found')
+  }
+
+  //render pins
+  const pinsData = await fetchPinsByDeskId(activeDesk.id)
+  pinsData.map(pinData => {
+    const pinElement = createPinElement(pinData)
+    deskElement.appendChild(pinElement)
+  })
 }
 
-export const renderCard = (card) => {
-    const cardWrapper = document.createElement('div');
-    
-    const image = document.createElement('img');
-    image.setAttribute('src', cardData.imageUrl);
+export function createPinElement(pinData) {
+  const pinWrapper = document.createElement('div');
+  pinWrapper.classList.add('board-list__pin')
 
-    const avatar = document.createElement('img');
-    avatar.setAttribute('src', cardData.authorAvatar);
-    avatar.setAttribute('width', '60');
-    avatar.setAttribute('height', '60');
-    parent.appendChild(avatar);
+  const image = document.createElement('img')
+  image.classList.add('board-list__pin-img')
+  image.setAttribute('src', pinData.imageUrl);
+  image.setAttribute('alt', pinData.imageUrl)
+  pinWrapper.appendChild(image)
 
-    const description = document.createElement('p');
-    description.innerHTML = cardData.description;
-    parent.appendChild(description);
-    
-    cardWrapper.appendChild(image);
+  const avatar = document.createElement('img')
+  avatar.setAttribute('src', pinData.authorAvatar);
+  avatar.classList.add('pin-avatar')
+  pinWrapper.appendChild(avatar)
 
-    // TODO pin action buttons
-    // TODO use showComplaintModal(pinId)
-    // TODO use showSelectBoardModal(pinId)
+  const pinActionsWrapper = document.createElement('div')
+  pinActionsWrapper.classList.add('pin-actions-wrapper')
+  pinWrapper.appendChild(pinActionsWrapper)
 
-    parent.appendChild(cardWrapper);
+  const description = document.createElement('div')
+  description.classList.add('pin-actions-description')
+  description.textContent = pinData.description
+  pinActionsWrapper.appendChild(description)
+
+  const pinActions = document.createElement('div')
+  pinActions.classList.add('pin-actions')
+  pinActionsWrapper.appendChild(pinActions)
+
+  const addBtn = document.createElement('button')
+  addBtn.classList.add('pin-btn', 'add-pin')
+  addBtn.textContent = 'Добавить'
+  pinActions.appendChild(addBtn)
+  addBtn.onclick = () => {
+    console.log(pinData.id)
+    //TODO
+  }
+
+  const complaintBtn = document.createElement('button')
+  complaintBtn.classList.add('pin-btn', 'complaint-pin')
+  complaintBtn.textContent = 'Пожаловаться'
+  pinActions.appendChild(complaintBtn)
+
+  return pinWrapper
+}
+
+export function getActiveDesk() {
+  const desksModels = getDesksModels()
+  const activeDeskId = Object.keys(desksModels)
+    .find(deskId => (desksModels[deskId].active))
+  if (activeDeskId) {
+    return desksModels[activeDeskId]
+  }
 }

@@ -22,7 +22,8 @@
     "@parcel/codeframe": "^2.7.0",
     "@parcel/reporter-cli": "^2.7.0",
     "@parcel/utils": "^2.7.0",
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@parcel/transformer-css-experimental": "^2.3.2",
