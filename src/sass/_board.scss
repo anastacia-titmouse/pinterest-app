@@ -1,98 +1,8 @@
-.list-check {
-    width: 500px;
-    height: 65px;
-    border-radius: 100px;
-    margin: 20px 0;
-    text-align: center;
-    font-family: "Lora", sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    background: rgb(184, 180, 180);
-    transition: background 0.3s ease-in-out;
-
-    &:hover, &:focus {
-        background:rgb(94, 90, 90);
-        color: white;
-        cursor: pointer;
-    } 
-
-    &__item {
-        font-family: "Lora", sans-serif;
-        font-weight: 400;
-        font-size: 20px;
-        background:white;
-    }
-    &__item-active {
-        font-size: 18px;
-    }
-
-}
-
-
-//.board-body--wrap {}
 .board-body {
     &__block {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    }
-
-    &__title-wrap {
-    height: 120px;
-    width: 30%; 
-    margin-bottom: 15px; 
-    }
-    &__title {
-        padding: 20px 0;
-        font-family: "Lora", sans-serif;
-        font-weight: 400;
-        font-size: 35px;
-        text-align: center;
-    }
-    &__title-note {
-        font-size: 20px;
-        text-align: center;
-        
-    }
-    &__list-check { 
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
-        margin-top: 10px;
-        background: rgb(184, 180, 180);
-        transition: background 0.3s ease-in-out;
-        
-        &:hover, &:focus{
-        background:rgb(94, 90, 90);
-        cursor: pointer;
-        }
-    }
-
-}
-
-
-.list-check__item-main {
-    text-align: center;
-}
-.button {
-    height: 65px;
-    width: 150px;
-    border-radius: 100px;
-    text-align: center;
-    font-family: "Lora", sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-
-&__btn-save--wrap {
-    position: absolute;
-    margin: 20px 0;
-    right: 15px;
-
-}
-
-    &__btn-save {
-    background-color:rgb(182, 32, 32);
-    color: white;
     }
 }
 .board-list{ 
@@ -100,7 +10,7 @@
     display: grid;
     flex-wrap: wrap;
     grid-template-columns: repeat(5, 1fr) ;
-    gap: 10px;
+    gap: 20px;
     }
     &__pin {
         width: 100%;
@@ -109,86 +19,49 @@
         align-items:center;
         position: relative;
         overflow: hidden;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        &:hover {
+            box-shadow: 0px 0px 10px 0.5px #39C0D4;
+        }
+        &--wrap {
+            height: 600px;
+            display: grid;
+            grid-template-rows: 3fr 1fr;
+        }
     }
     &__pin-img {
         width: 100%;
-        max-height: 100%;
+        height: 100%;
         border-radius: 5px;
         border: 1px solid grey;
         object-fit: cover;
         width: 100%;
         height: 100%;
     }
-
-
-    &__list-check {
-        position: absolute;
-        left: 10px;
+    &__description--wrapper {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+    }
+    &__avatar-wrapper {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    &__avatar {
+        width: 50px;
+        height: 50px;
+    }
+    &__description {
+        height: 2.5em;
+        overflow: hidden;
+        color: #FFFFFF;
+        font-family: 'Century Gothic';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0.06em;
     }
 }
-  /* Контейнер <div> - необходим для размещения выпадающего содержимого */
-  .dropdown {
-    width: 10%;
-    margin-left: 10px;
-    transition: background-color, color 0.6s ease-in-out;
-  }
-    /* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
-    .dropdown:hover .dropbtn {
-        background-color: rgb(94, 90, 90);
-        color:white;
-    }
-
-/* Кнопка выпадающего списка */
-.dropbtn {
-    background-color: rgb(184, 180, 180);
-    color: black ;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    width: 80px;
-    height: 80px;
-    border-radius:50%;
-
-  }
-  .dropbtn-span {
-    font-size: 35px;
-    font-weight: 600;
-    text-align: center;
-  }
-
-    /* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
-  .dropdown:hover .dropbtn {
-    background-color: rgb(94, 90, 90);
-    color:white;
-}
-  /* Выпадающее содержимое (скрыто по умолчанию) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius:20px;
-  }
-  
-  /* Ссылки внутри выпадающего списка */
-  .list-check__item {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border-radius: 10px;
-  }
-  
-  /* Изменение цвета выпадающих ссылок при наведении курсора */
-  .list-check__item:hover {background-color:rgb(184, 180, 180);}
-  
-  /* Показать выпадающее меню при наведении курсора */
-  .dropdown:hover .dropdown-content {display: block;}
-  
-
-
-  .list-check__for-pin {
-    width: 150px;
-  }

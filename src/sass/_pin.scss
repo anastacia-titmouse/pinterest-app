@@ -1,11 +1,10 @@
 .pin-actions-wrapper {
   display: none;
-  grid-template-rows: repeat(2, 1fr);
   position: absolute;
   width: 100%;
   height: 100%;
   bottom: 0;
-  background-color: rgba(255,255,255, 0.5);
+  background-color: rgba(255,255,255, 0.2);
 
   .pin-actions-description {
     width: 100%;
@@ -39,6 +38,7 @@
 
       &.add-pin {
         background: linear-gradient(180deg, #1797A8 0%, #00C2CB 100%);
+        opacity: 85%;
         font-family: 'Century Gothic';
         font-style: normal;
         font-weight: 400;

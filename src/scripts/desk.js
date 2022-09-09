@@ -71,27 +71,21 @@ export async function renderActiveDesk() {
 
 export function createPinElement(pinData) {
   const pinWrapper = document.createElement('div');
-  pinWrapper.classList.add('board-list__pin')
+  pinWrapper.classList.add('board-list__pin--wrap')
+
+  const pin = document.createElement('div');
+  pin.classList.add('board-list__pin')
+  pinWrapper.appendChild(pin);
 
   const image = document.createElement('img')
   image.classList.add('board-list__pin-img')
   image.setAttribute('src', pinData.imageUrl);
   image.setAttribute('alt', pinData.imageUrl)
-  pinWrapper.appendChild(image)
-
-  const avatar = document.createElement('img')
-  avatar.setAttribute('src', pinData.authorAvatar);
-  avatar.classList.add('pin-avatar')
-  pinWrapper.appendChild(avatar)
+  pin.appendChild(image)
 
   const pinActionsWrapper = document.createElement('div')
   pinActionsWrapper.classList.add('pin-actions-wrapper')
-  pinWrapper.appendChild(pinActionsWrapper)
-
-  const description = document.createElement('div')
-  description.classList.add('pin-actions-description')
-  description.textContent = pinData.description
-  pinActionsWrapper.appendChild(description)
+  pin.appendChild(pinActionsWrapper)
 
   const pinActions = document.createElement('div')
   pinActions.classList.add('pin-actions')
@@ -110,6 +104,24 @@ export function createPinElement(pinData) {
   complaintBtn.classList.add('pin-btn', 'complaint-pin')
   complaintBtn.textContent = 'Пожаловаться'
   pinActions.appendChild(complaintBtn)
+  
+  const descrWrapper = document.createElement('div');
+  descrWrapper.classList.add('board-list__description--wrapper');
+  pinWrapper.appendChild(descrWrapper);
+
+  const avatarWrapper = document.createElement('div');
+  descrWrapper.classList.add('board-list__avatar-wrapper');
+  descrWrapper.appendChild(avatarWrapper);
+
+  const avatar = document.createElement('img')
+  avatar.setAttribute('src', pinData.authorAvatar);
+  avatar.classList.add('board-list__avatar')
+  avatarWrapper.appendChild(avatar)
+
+  const description = document.createElement('p')
+  description.classList.add('board-list__description')
+  description.textContent = pinData.description
+  descrWrapper.appendChild(description)
 
   return pinWrapper
 }
