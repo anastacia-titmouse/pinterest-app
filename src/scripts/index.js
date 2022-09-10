@@ -5,6 +5,7 @@ import {
   openModal as openCreateBoardModal,
   closeModal as closeCreateBoardModal, onCreateDeskSubmit,
 } from './create.board.modal';
+import {hideSelectBoardModal, selectBoardModalFormSubmitHandler} from './select.desk.modal'
 
 // init
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // TODO event listeners
   document.getElementById('create_desk_btn').addEventListener('click', () => {openCreateBoardModal()})
   document.getElementById('close_create_board_modal').addEventListener('click', () => {closeCreateBoardModal()})
-  document.getElementById('crete_board_modal_form').addEventListener('submit', event => {onCreateDeskSubmit(event)})
+  document.getElementById('crete_board_modal__form').addEventListener('submit', event => {onCreateDeskSubmit(event)})
   document.getElementById('desk_selector').addEventListener('change', event => {onDeskSelectorChanged(event.target.value)})
+  document.getElementById('close_select_board_modal').addEventListener('click', () => {hideSelectBoardModal()})
+  document.getElementById('select_board_modal__form').addEventListener('submit', event => {selectBoardModalFormSubmitHandler(event)})
 });

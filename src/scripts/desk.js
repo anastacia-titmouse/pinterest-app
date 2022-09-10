@@ -1,4 +1,5 @@
 import { rerenderSelect as rerenderDesksSelector } from './desk.selector';
+import {showSelectBoardModal} from './select.desk.modal'
 
 export function activateDesk(deskId) {
   const desksModels = getDesksModels()
@@ -38,9 +39,20 @@ export async function fetchPinsByDeskId(deskId) {
     const response = await fetch('https://63052f15697408f7edc32802.mockapi.io/api/v1/card', {method: 'get'})
     return  response.json()
   } else {
-    console.log('Fetch from localstorage')
-    // TODO return Array<Pin> (only items with pin.deskId === deskId) from local storage
-    return []
+    const pinIdsJsonData = localStorage.getItem(`desk-pins-${deskId}`)
+
+    if (pinIdsJsonData) {
+      pinIds = JSON.parse(pinIdsJsonData)
+
+      const promises = pinIds.map(pinId => {
+        return fetch(`https://63052f15697408f7edc32802.mockapi.io/api/v1/card/${pinId}`, {method: 'get'})
+          .then(response => {
+            return response.json()
+          })
+      })
+
+      return Promise.all(promises)
+    }
   }
 }
 
@@ -96,8 +108,7 @@ export function createPinElement(pinData) {
   addBtn.textContent = 'Добавить'
   pinActions.appendChild(addBtn)
   addBtn.onclick = () => {
-    console.log(pinData.id)
-    //TODO
+    showSelectBoardModal(pinData.id)
   }
 
   const complaintBtn = document.createElement('button')
