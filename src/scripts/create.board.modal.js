@@ -16,7 +16,7 @@ export const closeModal = () => {
 }
 
 export const setModalError = (errorText) => {
-  const errorBlock = document.querySelector("#crete_board_modal_form_error")
+  const errorBlock = document.querySelector("#crete_board_modal__form-error")
 
   if (!errorText) {
     errorBlock.classList.contains('visible') && errorBlock.classList.remove('visible')
@@ -27,15 +27,15 @@ export const setModalError = (errorText) => {
 }
 
 export const cleanForm = () => {
-  const input = document.querySelector("#create_board_modal_desk_title_input")
+  const input = document.querySelector("#create_board_modal__desk-title-input")
   input.value = ''
   setModalError('')
 }
 
 export const onCreateDeskSubmit = (event) => {
   event.preventDefault()
-  const form = document.getElementById("crete_board_modal_form")
-  const input = form.querySelector("#create_board_modal_desk_title_input")
+  const form = document.getElementById("crete_board_modal__form")
+  const input = form.querySelector("#create_board_modal__desk-title-input")
   const deskTitle = input.value
 
   if (!deskTitle) {

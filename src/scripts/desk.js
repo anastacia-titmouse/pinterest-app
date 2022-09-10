@@ -110,7 +110,7 @@ export function createPinElement(pinData) {
   pinWrapper.appendChild(descrWrapper);
 
   const avatarWrapper = document.createElement('div');
-  descrWrapper.classList.add('board-list__avatar-wrapper');
+  avatarWrapper.classList.add('board-list__avatar-wrapper');
   descrWrapper.appendChild(avatarWrapper);
 
   const avatar = document.createElement('img')
