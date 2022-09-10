@@ -20,4 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('desk_selector').addEventListener('change', event => {onDeskSelectorChanged(event.target.value)})
   document.getElementById('close_select_board_modal').addEventListener('click', () => {hideSelectBoardModal()})
   document.getElementById('select_board_modal__form').addEventListener('submit', event => {selectBoardModalFormSubmitHandler(event)})
+  document.getElementById('search_top').addEventListener('input', () => {renderActiveDesk()})
 });

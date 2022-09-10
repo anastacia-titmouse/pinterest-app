@@ -35,9 +35,11 @@ export function getDesksModels() {
 }
 
 export async function fetchPinsByDeskId(deskId) {
+  let pinsData = [];
+
   if (deskId === 'main') {
     const response = await fetch('https://63052f15697408f7edc32802.mockapi.io/api/v1/card', {method: 'get'})
-    return  response.json()
+    pinsData = await response.json()
   } else {
     const pinIdsJsonData = localStorage.getItem(`desk-pins-${deskId}`)
 
@@ -51,8 +53,19 @@ export async function fetchPinsByDeskId(deskId) {
           })
       })
 
-      return Promise.all(promises)
+      pinsData = await Promise.all(promises)
     }
+  }
+
+  const searchInput = document.getElementById('search_top')
+  const keyword = searchInput.value
+
+  if(keyword) {
+    return pinsData.filter(pinData => {
+      return pinData.hashtag.startsWith(keyword)
+    })
+  } else {
+    return pinsData
   }
 }
 
