@@ -8,38 +8,34 @@
     &--wrap  {
         // background: radial-gradient(circle, #ffffff,#2F73B6);
         background: black;
-        border: 2px solid rgb(11, 212, 222);
         width: 100%;
         height: 100px;
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
-        gap: 15px;;
+        justify-content: space-between;
+        gap: 15px;
+       margin-bottom: 25px;
     }
 
 }
 .logo_wrapper {
         width: 10%;
         text-align: center;
-    &:hover {
-        transform: scale(1.05); 
-        border-radius:25px;
-    }
+        transition: path 0.7s ease-in-out;
+    
 }
 
+.logo_wrapper:hover .nav-logo__logo-img {
+    path {
+        fill: #79e2e8fd;
+    }
+}
 .nav-logo__logo-img {
     width: 95px;
     padding-top: 20px ;
-&:hover {
-    transform: scale(1.3);
-    }
-}
-
-.nav-logo__logo-img {
-    path {
+path {
         fill: #00C2CB;
-    }
-}
+    }}
 
 .search_wrapper {
     position: relative;
@@ -87,7 +83,6 @@
          background-color:#00c1cbdc;
          font-weight: 400;
          cursor: pointer;
-         transform: scale(1.01);
         } 
     }
 }
@@ -108,11 +103,11 @@
     color: white;
   }
 .btn-submit {
-    display: none;  //!!!!!!
+    display: none;  //!!!!
     position: absolute;
     right: 25px;
     border:none;
-    bottom:36px;
+    bottom:39px;
     border-radius:20px;
     width:30px;
     height: 30px;
@@ -121,13 +116,10 @@
     outline: none;
 
 }
-
-
-
 //   /* Контейнер <div> - необходим для размещения выпадающего содержимого */
 .create_desk {
     &--wrapp {
-        width: 30%;
+        width: 20%;
         margin: auto 0;
         display: flex;
         flex-direction: row;
@@ -141,10 +133,11 @@
   .desk-selector {
     background-color: #00C2CB;
     width: 100px;
-    height: 50px;
+    height: 55px;
     border: none;
     border-radius:20px;
     outline: none;
+    color: black;
     &:hover, &:focus  {
         background-color:#00c1cbdc;
         color: white;
@@ -154,19 +147,12 @@
   
 //   /* Ссылки внутри выпадающего списка */
   .list-check__item {
-    width: 120px;
-    height: 45px;
     color: white;
-    padding: 12px 16px;
     text-decoration: none;
     text-align: center;
-    font-size: 16px;
-    border-radius: 10px;
-    transition: background-color, color .7s ease-in-out;
+    font-size: 18px;
   }
-//   /* Изменение цвета выпадающих ссылок при наведении курсора */
-.list-check__item:hover,.list-check__item:focus  {
-    background-color:rgb(184, 180, 180);
-    color: white;
+
+.create_desk_btn:hover,.create_desk_btn:focus {
     cursor: pointer;
 }
