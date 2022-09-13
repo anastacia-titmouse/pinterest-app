@@ -131,11 +131,13 @@ path {
 
 //   /* Выпадающее содержимое (скрыто по умолчанию) */
   .desk-selector {
-    background-color: #00C2CB;
     width: 100px;
     height: 55px;
+}
+.button-desk {
+    background-color: #00C2CB;
     border: none;
-    border-radius:20px;
+    border-radius:30px;
     outline: none;
     color: black;
     &:hover, &:focus  {
@@ -143,6 +145,12 @@ path {
         color: white;
         cursor: pointer;
     }
+}
+.create_desk_btn {
+    width: 60px;
+    height: 55px;
+    font-weight: bold;
+    font-size: 25px;
 }
   
 //   /* Ссылки внутри выпадающего списка */
