@@ -1,18 +1,19 @@
 import {getDesksModels, addDesksModel} from './desk'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'; //?
 
 export const openModal = () => {
-    const modalEl = document.getElementById("create_board_modal")
+    const modalEl = document.getElementById("create_board_modal") //finds button that creates board modal
 
     if (modalEl) {
-        modalEl.style.display = 'block'
+        modalEl.style.display = 'block' 
     }
 }
 
 export const closeModal = () => {
   const modalEl = document.getElementById("create_board_modal")
   modalEl.style.display = 'none'
-  setModalError('')
+  setModalError('') //?
+  cleanForm()
 }
 
 export const setModalError = (errorText) => {
