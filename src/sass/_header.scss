@@ -1,13 +1,165 @@
-// TODO styles for header.header {
 .header {
     &__container {
         display: flex;
     }
-
-    &__search {
-
-        &-title {
-            color: red;
-        }
+}
+.header {
+    &--wrap  {
+        // background: radial-gradient(circle, #ffffff,#2F73B6);
+        background: black;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 15px;
+       margin-bottom: 25px;
     }
+
+}
+.logo_wrapper {
+        width: 10%;
+        text-align: center;
+        transition: path 0.7s ease-in-out;
+    
+}
+
+.logo_wrapper:hover .nav-logo__logo-img {
+    path {
+        fill: #79e2e8fd;
+    }
+}
+.nav-logo__logo-img {
+    width: 95px;
+    padding-top: 20px ;
+path {
+        fill: #00C2CB;
+    }}
+
+.search_wrapper {
+    position: relative;
+    width: 55%;
+    height: 100px;
+    display: block;
+}
+
+.search {
+    &__form {
+        display: block;
+        margin: 20px 0;
+    }
+    
+    &__form:hover .btn-submit {
+    display: block;
+    }
+    &__icon {
+    width: 25px;
+    display: block;
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    }
+    &__icon-img {
+    width: 100% ;
+ }
+    &__form:hover + &__icon   {
+     display: none;
+ } 
+ 
+    &__top-btn {
+     width: 100%;
+     border: none;
+     border-radius: 100px;
+     font-family: "Lora", sans-serif;
+     font-weight: 400;
+     font-size: 20px;
+     background-color: #00C2CB;
+     padding: 15px;
+     outline: none;
+     transition: background-color, color 0.5s ease-in-out;
+ 
+     &:hover, &:focus {
+         background-color:#00c1cbdc;
+         font-weight: 400;
+         cursor: pointer;
+        } 
+    }
+}
+.search__top-btn::placeholder {
+    color: black;
+    text-align: start;
+    padding: 35px;
+   
+}
+.search__top-btn:hover::placeholder{
+    color: white;
+}
+
+.search__top-btn:hover:-ms-input-placeholder {
+    color: white;
+  }
+.search__top-btn:hover::-ms-input-placeholder {
+    color: white;
+  }
+.btn-submit {
+    display: none;  //!!!!
+    position: absolute;
+    right: 25px;
+    border:none;
+    bottom:39px;
+    border-radius:20px;
+    width:30px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    outline: none;
+
+}
+//   /* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.create_desk {
+    &--wrapp {
+        width: 20%;
+        margin: auto 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+
+    }}
+    
+
+//   /* Выпадающее содержимое (скрыто по умолчанию) */
+  .desk-selector {
+    width: 100px;
+    height: 55px;
+}
+.button-desk {
+    background-color: #00C2CB;
+    border: none;
+    border-radius:30px;
+    outline: none;
+    color: black;
+    &:hover, &:focus  {
+        background-color:#00c1cbdc;
+        color: white;
+        cursor: pointer;
+    }
+}
+.create_desk_btn {
+    width: 60px;
+    height: 55px;
+    font-weight: bold;
+    font-size: 25px;
+}
+  
+//   /* Ссылки внутри выпадающего списка */
+  .list-check__item {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+  }
+
+.create_desk_btn:hover,.create_desk_btn:focus {
+    cursor: pointer;
 }
