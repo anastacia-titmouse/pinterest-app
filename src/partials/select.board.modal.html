@@ -1,14 +1,16 @@
 <div id="select_board_modal">
     <div class="select_board_modal--background">
         <div class="select_board_modal--wrapper">
-            <button id="close_select_board_modal">X</button>
+            <button id="close_select_board_modal" class="btn-circular greenish-blue-x" >
+               <span class="btn-circular__text">X</span> 
+            </button>
             <h2 class="select_board_modal__title">Select a desk</h2>
             <form id="select_board_modal__form">
                 <input type="hidden" id="select_board_modal_pin_id">
                 <select id="select_board_modal_selector" class="desk-selector">
                     <!-- Options renders dinamically -->
                 </select>
-                <button id="select_board_modal_submit" type='submit'>Ok</button>
+                <button id="select_board_modal_submit" class="btn-circular greenish-blue-ok" type='submit'>Ok</button>
             </form>
         </div>
     </div>
