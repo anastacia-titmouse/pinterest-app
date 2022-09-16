@@ -3,6 +3,7 @@
         display: flex;
     }
 }
+
 .header {
     &--wrap  {
         // background: radial-gradient(circle, #ffffff,#2F73B6);
@@ -12,29 +13,25 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-content: center;
         gap: 15px;
-       margin-bottom: 25px;
+        margin-bottom: 25px;
     }
 
 }
+
 .logo_wrapper {
-        width: 10%;
-        text-align: center;
-        transition: path 0.7s ease-in-out;
-    
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 10%;
+    cursor: pointer;
 }
 
-.logo_wrapper:hover .nav-logo__logo-img {
-    path {
-        fill: #79e2e8fd;
-    }
-}
 .nav-logo__logo-img {
-    width: 95px;
-    padding-top: 20px ;
-path {
-        fill: #00C2CB;
-    }}
+    width: 55px;
+    // padding-top: 20px ;
+}
 
 .search_wrapper {
     position: relative;
@@ -46,7 +43,7 @@ path {
 .search {
     &__form {
         display: block;
-        margin: 20px 0;
+        margin: 22.5px 0;
     }
     
     &__form:hover .btn-submit {
@@ -54,66 +51,68 @@ path {
     }
     &__icon {
     width: 25px;
+    height: 25px;
     display: block;
     position: absolute;
-    top: 35px;
+    top: 37.5px;
     left: 15px;
     }
     &__icon-img {
-    width: 100% ;
- }
-    &__form:hover + &__icon   {
-     display: none;
- } 
- 
+    width: 100%;
+    height: 100%;
+    }
+    // &__form:hover + &__icon {
+    // display: none;
+    // } 
+
     &__top-btn {
-     width: 100%;
-     border: none;
-     border-radius: 100px;
-     font-family: "Lora", sans-serif;
-     font-weight: 400;
-     font-size: 20px;
-     background-color: #00C2CB;
-     padding: 15px;
-     outline: none;
-     transition: background-color, color 0.5s ease-in-out;
- 
-     &:hover, &:focus {
-         background-color:#00c1cbdc;
-         font-weight: 400;
-         cursor: pointer;
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 100px;
+    font-family: "Lora", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    background-color: #00C2CB;
+    padding: 15px 45px;
+    outline: none;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover, &:focus {
+        background-color:#00c1cbdc;
+        font-weight: 400;
+        cursor: pointer;
         } 
     }
 }
 .search__top-btn::placeholder {
     color: black;
     text-align: start;
-    padding: 35px;
-   
+    padding: 35px 0px;
 }
 .search__top-btn:hover::placeholder{
     color: white;
 }
 
-.search__top-btn:hover:-ms-input-placeholder {
-    color: white;
-  }
-.search__top-btn:hover::-ms-input-placeholder {
-    color: white;
-  }
 .btn-submit {
     display: none;  //!!!!
     position: absolute;
     right: 25px;
-    border:none;
-    bottom:39px;
-    border-radius:20px;
-    width:30px;
+    border: none;
+    bottom: 35px;
+    border-radius: 20px;
+    width: 30px;
     height: 30px;
     background-color: black;
     color: white;
     outline: none;
+    padding-bottom: 5px;
+    font-weight: bold;
+    cursor: pointer;
 
+    &:hover, &:active {
+        display: block;
+    }
 }
 //   /* Контейнер <div> - необходим для размещения выпадающего содержимого */
 .create_desk {
@@ -124,13 +123,12 @@ path {
         flex-direction: row;
         justify-content: flex-start;
         gap: 10px;
-
-    }}
-    
+    }
+}
 
 //   /* Выпадающее содержимое (скрыто по умолчанию) */
-  .desk-selector {
-    width: 100px;
+.desk-selector {
+    width: 120px;
     height: 55px;
 }
 .button-desk {
@@ -151,14 +149,14 @@ path {
     font-weight: bold;
     font-size: 25px;
 }
-  
+
 //   /* Ссылки внутри выпадающего списка */
-  .list-check__item {
+.list-check__item {
     color: white;
     text-decoration: none;
     text-align: center;
     font-size: 18px;
-  }
+}
 
 .create_desk_btn:hover,.create_desk_btn:focus {
     cursor: pointer;
