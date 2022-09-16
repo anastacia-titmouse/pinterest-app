@@ -1,6 +1,29 @@
 import { rerenderSelect as rerenderDesksSelector } from './desk.selector';
 import {showSelectBoardModal} from './select.desk.modal'
 
+export function deletePin(deskId, pinId) {
+  const pin = document.getElementById(`pin_${pinId}`)
+  const pinParent = pin.parentElement
+  pinParent.removeChild(pin)
+
+  deletePinModelFromDesk(deskId, pinId)
+}
+
+export function deletePinModelFromDesk(deskId, pinId) {
+  const deskPinsJsonData = localStorage.getItem(`desk-pins-${deskId}`)
+  let deskPins;
+  if(deskPinsJsonData) {
+    deskPins = new Set(JSON.parse(deskPinsJsonData))
+  } else {
+    deskPins = new Set()
+  }
+
+  deskPins.delete(pinId)
+  console.log(deskPins)
+
+  localStorage.setItem(`desk-pins-${deskId}`, JSON.stringify(Array.from(deskPins)))
+}
+
 export function activateDesk(deskId) {
    //активирует выбранную доску по id
   const desksModels = getDesksModels()
@@ -93,14 +116,15 @@ export async function renderActiveDesk() {
   //render pins
   const pinsData = await fetchPinsByDeskId(activeDesk.id) //renders pins on the chosen desK?
   pinsData.map(pinData => {
-    const pinElement = createPinElement(pinData)
+    const pinElement = createPinElement(pinData, activeDesk.id)
     deskElement.appendChild(pinElement)
   })
 }
 
-export function createPinElement(pinData) {         //creates pins
+export function createPinElement(pinData, deskId) {         //creates pins
   const pinWrapper = document.createElement('div');
   pinWrapper.classList.add('board-list__pin--wrap')
+  pinWrapper.setAttribute('id', `pin_${pinData.id}`);
 
   const pin = document.createElement('div');
   pin.classList.add('board-list__pin')
@@ -120,12 +144,22 @@ export function createPinElement(pinData) {         //creates pins
   pinActions.classList.add('pin-actions')
   pinActionsWrapper.appendChild(pinActions)
 
-  const addBtn = document.createElement('button')
-  addBtn.classList.add('pin-btn', 'add-pin')
-  addBtn.textContent = 'Добавить'
-  pinActions.appendChild(addBtn)
-  addBtn.onclick = () => {
-    showSelectBoardModal(pinData.id)
+  if(deskId === 'main') {
+    const addBtn = document.createElement('button')
+    addBtn.classList.add('pin-btn', 'add-pin')
+    addBtn.textContent = 'Добавить'
+    pinActions.appendChild(addBtn)
+    addBtn.onclick = () => {
+      showSelectBoardModal(pinData.id)
+    }
+  } else {  
+    const btnClose = document.createElement('button')
+    btnClose.classList.add('pin-actions__delete-btn')
+    btnClose.innerHTML = "&times;"
+    btnClose.onclick = () => {
+      deletePin(deskId, pinData.id)
+    }
+    pinActions.appendChild(btnClose)
   }
 
   const complaintBtn = document.createElement('button')
