@@ -1,15 +1,28 @@
-<header>
-    <div class="logo_wrapper">
-        <!-- TODO put logo here -->
-    </div>
-    <div class="search_wrapper">
-        <!-- TODO search input -->
-        <input id="search_top" type="text">
-        <div class="search-results">
-            <!-- TODO search result item -->
+<header name="#header">
+    <div class="header--wrap">
+        <a class="logo_wrapper" href="header"> 
+            <img class="nav-logo__logo-img gradient-icon" src="./images/logo.svg" alt="logo pic">
+        </a>
+    
+        <div class="search_wrapper">
+            <form class="search__form">
+                <input class="search__top-btn" id="search_top" type="text" placeholder = "Поиск">
+                <input class="btn-submit" id="#" type="reset" placeholder= "submit" value="&#215"> 
+            </form>
+            <div class="search__icon">
+                <svg class="search__icon-img" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            </div>
         </div>
+    
+        <div class="create_desk--wrapp">
+        <select class="desk-selector button-desk" id="desk_selector"> 
+            <option class="list-check__item">Выбрать доску</option>
+            <option class="list-check__item">Доска 1</option>
+            <option class="list-check__item">Доска 2</option>
+            <option class="list-check__item">Доска 3</option>
+            <!-- render dynamically -->
+        </select>
+        <button class="create_desk_btn button-desk" id="create_desk_btn">+</button>
     </div>
-    <select id="desk_selector">
-        <!-- render dynamicaly -->
-    </select>
+    </header>
 </header>

@@ -1,46 +1,80 @@
 .pin-actions-wrapper {
-    display: none;
-    position: absolute;
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-color: rgba(255,255,255, 0.2);
+
+  .pin-actions-description {
     width: 100%;
     height: 100%;
-    bottom: 0;
-    background-color: rgba(255,255,255, 0.5);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 20px 20px 0 20px;
+  }
 
-    .pin-actions {
-        width: 100%;
-        height: 100%;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
+  .pin-actions {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 
-        .pin-btn{ 
-            width: 100%;
-            height: 30px;
-            border-radius: 3px;
-            border: none;
-            outline: none;
-            margin: 5px 0;
-            color: #ffffff;
-            font-size: large;
-            font-family: Arial, Helvetica, sans-serif;
-            text-transform: capitalize;
+    .pin-btn{
+      width: 100%;
+      height: 30px;
+      border-radius: 25px;
+      border: 1px solid #39C0D4;
+      outline: none;
+      margin: 5px 0;
+      color: #ffffff;
+      font-size: large;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: capitalize;
 
-            &:hover {
-                font-weight: 600;
-            }
+      &:hover {
+        box-shadow: 0px 0px 10px 0.5px #39C0D4;
+      }
 
-            &.add-pin {
-                background-color: greenyellow;
-            }
+      &.add-pin {
+        background: linear-gradient(180deg, #1797A8 0%, #00C2CB 100%);
+        opacity: 85%;
+        font-family: 'Century Gothic';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: 0.12em;
+      }
 
-            &.complaint-pin {
-                background-color: tomato;
-            }
-        }
+      &.complaint-pin {
+        background-color: rgba(30, 30, 30, 0.85);
+        color:#00C2CB;
+        font-family: 'Century Gothic';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: 0.12em;
+      }
     }
+  }
 }
 
 .board-list__pin:hover .pin-actions-wrapper {
-    display: block;
+  display: grid;
+}
+
+.board-list__pin {
+  position: relative;
+
+  .pin-avatar {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    box-shadow: 0 0 10px #ffffff;
+    border: 2px solid #ffffff;
+  }
 }
