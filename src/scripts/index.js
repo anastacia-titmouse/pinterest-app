@@ -5,7 +5,7 @@ import {
   openModal as openCreateBoardModal,
   closeModal as closeCreateBoardModal, onCreateDeskSubmit,
 } from './create.board.modal';
-import {hideSelectBoardModal, selectBoardModalFormSubmitHandler} from './select.desk.modal'
+import { hideSelectBoardModal, selectBoardModalFormSubmitHandler } from './select.desk.modal'
 
 // init
 document.addEventListener('DOMContentLoaded', () => {
