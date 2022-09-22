@@ -277,16 +277,8 @@ a {
   letter-spacing: 0.06em;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-}
-
 .complaint-modal {
+  display: none;
   width: 540px;
   background-color: black;
   color: #7CEEFF;
@@ -341,25 +333,25 @@ p {
   z-index: -1;
   opacity: 0;
 }
-.complaint-modal__cause > input:not(:disabled):not(:checked) + p:hover::before {
+.complaint-modal__cause > input:not(:disabled):not(:checked) + p:hover:before {
   border-color: #b3d7ff;
 }
-.complaint-modal__cause > input:not(:disabled):active + p::before {
+.complaint-modal__cause > input:not(:disabled):active + p:before {
   background-color: #b3d7ff;
   border-color: #b3d7ff;
 }
-.complaint-modal__cause > input:focus + p::before {
+.complaint-modal__cause > input:focus + p:before {
   box-shadow: 0 0 0 0.2rem rgba(120, 234, 247, 0.25);
 }
-.complaint-modal__cause > input::focus:not(:checked) + p::before {
+.complaint-modal__cause > input:not(:checked):focus + p:before {
   border-color: #80bdff;
 }
-.complaint-modal__cause > input:checked + p::before {
+.complaint-modal__cause > input:checked + p:before {
   border-color: #7CEEFF;
   background-color: #7CEEFF;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
 }
-.complaint-modal__cause > input:disabled + p::before {
+.complaint-modal__cause > input:disabled + p:before {
   background-color: #e9ecef;
 }
 .complaint-modal__cause > p {
@@ -370,7 +362,7 @@ p {
       -ms-user-select: none;
           user-select: none;
 }
-.complaint-modal__cause > p::before {
+.complaint-modal__cause > p:before {
   content: "";
   display: inline-block;
   width: 1em;
