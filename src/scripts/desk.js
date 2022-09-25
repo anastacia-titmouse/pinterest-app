@@ -1,5 +1,6 @@
 import { rerenderSelect as rerenderDesksSelector } from './desk.selector';
 import {showSelectBoardModal} from './select.desk.modal'
+import {showComplaintModal} from './complaint.modal'
 
 export function deletePin(deskId, pinId) {
   const pin = document.getElementById(`pin_${pinId}`)
@@ -165,6 +166,7 @@ export function createPinElement(pinData, deskId) {         //creates pins
   const complaintBtn = document.createElement('button')
   complaintBtn.classList.add('pin-btn', 'complaint-pin')
   complaintBtn.textContent = 'Пожаловаться'
+  complaintBtn.onclick = () => {showComplaintModal(pinData.id)}
   pinActions.appendChild(complaintBtn)
   
   const descrWrapper = document.createElement('div');
