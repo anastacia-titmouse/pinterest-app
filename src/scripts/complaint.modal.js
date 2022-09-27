@@ -9,8 +9,14 @@ export const showComplaintModal = (pinId) => {
 export const closeComplaintModal = () => {
     const complaintModalEl = document.getElementById('complaint_modal');
     complaintModalEl.style.display = 'none';
-}
 
+    const hiddenModalEl = document.getElementById('complaint_modal');
+    window.onclick = function (e) {
+        if (e.target == hiddenModalEl) {
+            hiddenModalEl.style.display = "none";
+        }
+    }
+}
 /**
  * Отправляем данные по нажатию кнопки "Отправить" на бекенд
  */
