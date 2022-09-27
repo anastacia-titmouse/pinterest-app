@@ -69,11 +69,14 @@ export async function fetchPinsByDeskId(deskId) {  //function to fetch pins from
     const response = await fetch('https://63052f15697408f7edc32802.mockapi.io/api/v1/card', {method: 'get'}) //when in main desk, waits for the fetch from mock.api.
     pinsData = await response.json() // then waits for the response in json format
   } else {
-    const pinIdsJsonData = localStorage.getItem(`desk-pins-${deskId}`) // if not in main, gets pins from the desk fron the local storage
+    // if not in main, gets pins from the desk fron the local storage
+    const pinIdsJsonData = localStorage.getItem(`desk-pins-${deskId}`)
 
+    //if such note exists in local storage - makes object from json and gets all the pins
     if (pinIdsJsonData) {
-      pinIds = JSON.parse(pinIdsJsonData) // ??
+      pinIds = JSON.parse(pinIdsJsonData) 
 
+        //gets only pins with id from the the chosen desk
       const promises = pinIds.map(pinId => {
         return fetch(`https://63052f15697408f7edc32802.mockapi.io/api/v1/card/${pinId}`, {method: 'get'})
           .then(response => {
@@ -81,7 +84,7 @@ export async function fetchPinsByDeskId(deskId) {  //function to fetch pins from
           })
       })
 
-      pinsData = await Promise.all(promises) //?
+      pinsData = await Promise.all(promises) 
     }
   }
 
@@ -93,7 +96,7 @@ export async function fetchPinsByDeskId(deskId) {  //function to fetch pins from
       return pinData.hashtag.startsWith(keyword) //a hashtag starts with a keyword from search
     })
   } else {
-    return pinsData //or shows all the pins?
+    return pinsData //shows all the pins
   }
 }
 
@@ -105,17 +108,20 @@ export async function renderActiveDesk() {
   //Init desk models if needed
   let desksModels = getDesksModels()
   if(Object.keys(desksModels).length === 0) {
-    desksModels = addDesksModel('main', 'Homepage', true) //?
+    desksModels = addDesksModel('main', 'Homepage', true) 
   }
 
   //Check active desk
   const activeDesk = getActiveDesk()
   if (!activeDesk) {
-    throw new Error('Active desk not found') //?
+    throw new Error('Active desk not found') 
   }
 
   //render pins
-  const pinsData = await fetchPinsByDeskId(activeDesk.id) //renders pins on the chosen desK?
+   // gets active desk id and pins on it. Pins data - array of pins objects
+  const pinsData = await fetchPinsByDeskId(activeDesk.id)
+  //for each pin from pinsData creates pin with information from mock.api and active desk id. 
+  //Then adds pin on deskElement(our desk)
   pinsData.map(pinData => {
     const pinElement = createPinElement(pinData, activeDesk.id)
     deskElement.appendChild(pinElement)
