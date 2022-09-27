@@ -11,6 +11,21 @@ export const closeComplaintModal = () => {
     complaintModalEl.style.display = 'none';
 }
 
+
+export const closeComplaintModalWindow = () => {
+    const hiddenModalEl = document.getElementById('complaint_modal');
+    window.onclick = function (e) {
+        if (e.target == hiddenModalEl) {
+            hiddenModalEl.style.display = "none";
+        }
+    }
+}
+
+
+
+
+
+
 /**
  * Отправляем данные по нажатию кнопки "Отправить" на бекенд
  */
