@@ -1,4 +1,4 @@
-import {getDesksModels, addDesksModel} from './desk'
+import {getDesksModels, addDesksModel, toggleBodyScroll} from './desk'
 import { v4 as uuidv4 } from 'uuid'; // export v4 as uudv4(псевдоним)
 
 
@@ -8,7 +8,7 @@ export const openModal = () => {
     if (modalEl) {
         modalEl.style.display = 'block' 
     }
-
+    toggleBodyScroll(false)
 }
 
 export const closeModal = () => {
@@ -16,13 +16,14 @@ export const closeModal = () => {
   modalEl.style.display = 'none'
   setModalError('') //обнуляет ошибку
   cleanForm()
+  toggleBodyScroll(true)
 }
 
 //closes modal woindow when clicked somewhere around it
 export const closeCreateModalWindow = () => {
-  const hiddenModalEl = document.getElementById("create-board-modal-close");
-  window.onclick = function (e) {
-      if (e.target == hiddenModalEl) {
+  const closeModal = document.getElementById("create-board-modal-close");
+  window.onclick = function (event) {
+      if (event.target == closeModal) {
           closeModal();
       }
   }
@@ -32,8 +33,9 @@ export const closeCreateModalWindow = () => {
 export const setModalError = (errorText) => {
   const errorBlock = document.querySelector("#crete_board_modal__form-error")
 
+  //works as another if block. If on the left is true -> do what's on the right
   if (!errorText) {
-    errorBlock.classList.contains('visible') && errorBlock.classList.remove('visible') //works as another if block. If on the left is true -> do what's on the right
+    errorBlock.classList.contains('visible') && errorBlock.classList.remove('visible') 
   } else {
     errorBlock.textContent = errorText
     errorBlock.classList.add('visible')

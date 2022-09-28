@@ -1,4 +1,4 @@
-import {getDesksModels} from './desk'
+import {getDesksModels, toggleBodyScroll} from './desk'
 
 //finds pin's id to open modal for exactly this pin, which is clicked on
 export const showSelectBoardModal = (pinId) => {
@@ -7,6 +7,8 @@ export const showSelectBoardModal = (pinId) => {
     
     const modalPinIdInput = document.getElementById('select_board_modal_pin_id')
     modalPinIdInput.value = pinId
+    
+    toggleBodyScroll(false)
 
     cleanSelectOptions()
     renderSelectOptions()
@@ -42,6 +44,16 @@ export function selectBoardModalFormSubmitHandler(event) {
 export function hideSelectBoardModal() {
     const modalWrapper = document.getElementById('select_board_modal')
     modalWrapper.classList.remove('visible')
+    toggleBodyScroll(true)
+}
+
+export const closeSelectBoardModalWindow = () => {
+    const hiddenModalEl = document.getElementById('select_board_modal');
+    window.onclick = function (e) {
+        if (e.target == hiddenModalEl) {
+            hideSelectBoardModal();
+        }
+    }
 }
 
 //cleans select options

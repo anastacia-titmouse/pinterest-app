@@ -2,6 +2,16 @@ import { rerenderSelect as rerenderDesksSelector } from './desk.selector';
 import {showSelectBoardModal} from './select.desk.modal'
 import {showComplaintModal} from './complaint.modal'
 
+export function toggleBodyScroll(visible) {
+  const bodyEl = document.querySelector('body');
+  if (visible) {
+    bodyEl.style.overflow = 'inherit';
+    
+  } else {
+    bodyEl.style.overflow = 'hidden';
+  }
+}
+
 export function deletePin(deskId, pinId) {
   const pin = document.getElementById(`pin_${pinId}`)
   const pinParent = pin.parentElement

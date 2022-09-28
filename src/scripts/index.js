@@ -5,7 +5,6 @@ import {
   openModal as openCreateBoardModal,
   closeModal as closeCreateBoardModal, onCreateDeskSubmit, closeCreateModalWindow
 } from './create.board.modal';
-  //  для закрытия селекта (3-я функция)
 import { hideSelectBoardModal, selectBoardModalFormSubmitHandler, closeSelectBoardModalWindow } from './select.desk.modal'
 
 // init
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.onclick = () => {closeComplaintModalWindow()};
   window.onclick = () => {closeCreateModalWindow()};
-  //  для закрытия селекта 
   window.onclick = () => {closeSelectBoardModalWindow()};
 
 
