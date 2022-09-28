@@ -59,3 +59,13 @@ export function renderSelectOptions() {
         select.appendChild(optionEl)
     }
 }
+// для закрытия модального окна 
+export const closeSelectBoardModalWindow = () => {
+    const closeSelectBoardModalEl = document.getElementById('select_board_modalClose--background');
+
+    window.onclick = function (e) {
+        if (e.target == closeSelectBoardModalEl) {
+            hideSelectBoardModal();
+        }
+    }
+}
