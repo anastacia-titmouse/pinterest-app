@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('select_board_modal__form').addEventListener('submit', event => {selectBoardModalFormSubmitHandler(event)})
   document.getElementById('search_top').addEventListener('input', () => {renderActiveDesk()})
 
+  //homepage anchor
   document.getElementById('logo').addEventListener('click', event => {
     event.preventDefault();
 

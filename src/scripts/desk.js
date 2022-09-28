@@ -40,8 +40,7 @@ export function activateDesk(deskId) {
   const desksModels = getDesksModels()
   for (let currentDeskId of Object.keys(desksModels)) {
     //deskModels.7603d172-a09c-4c26-a2b1-9f06b40de803.active may be true or false
-    desksModels[currentDeskId].active = deskId === currentDeskId; 
-    console.log(currentDeskId)
+    desksModels[currentDeskId].active = deskId === currentDeskId;  //compare deskId with current desk. If true -> the desk is active
     console.log(deskId === currentDeskId)
   }
   localStorage.setItem('desks', JSON.stringify(desksModels))
@@ -206,7 +205,7 @@ export function createPinElement(pinData, deskId) {         //creates pins
   return pinWrapper
 }
 
-export function getActiveDesk() {   //?
+export function getActiveDesk() {   //finds active desk
   const desksModels = getDesksModels()
   const activeDeskId = Object.keys(desksModels)
     .find(deskId => (desksModels[deskId].active))
