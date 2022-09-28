@@ -1,4 +1,4 @@
-import {getDesksModels, addDesksModel, toggleBodyScroll} from './desk'
+import {getDesksModels, addDesksModel, Z} from './desk'
 import { v4 as uuidv4 } from 'uuid'; // export v4 as uudv4(псевдоним)
 
 

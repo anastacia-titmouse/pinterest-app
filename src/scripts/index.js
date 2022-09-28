@@ -1,6 +1,6 @@
 import { renderActiveDesk, activateDesk } from './desk';
 import { sendComplaint, closeComplaintModal, closeComplaintModalWindow } from "./complaint.modal";
-import { onDeskSelectorChanged } from "./desk.selector";
+import { onDeskSelectorChanged, renderSelectOptions } from "./desk.selector";
 import {
   openModal as openCreateBoardModal,
   closeModal as closeCreateBoardModal, onCreateDeskSubmit, closeCreateModalWindow
@@ -9,7 +9,8 @@ import { hideSelectBoardModal, selectBoardModalFormSubmitHandler, closeSelectBoa
 
 // init
 document.addEventListener('DOMContentLoaded', () => {
-  renderActiveDesk().catch(error => {console.log(error)})
+  renderSelectOptions();
+  renderActiveDesk().catch(error => {console.log(error)});
 
   window.onclick = () => {closeComplaintModalWindow()};
   window.onclick = () => {closeCreateModalWindow()};

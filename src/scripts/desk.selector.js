@@ -42,4 +42,3 @@ export function onDeskSelectorChanged(deskId) {
   renderActiveDesk().catch(error => {console.log(error)})
 }
 
-renderSelectOptions()
