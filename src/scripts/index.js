@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSelectOptions();
   renderActiveDesk().catch(error => {console.log(error)});
 
+
+document.getElementById('complaint_modal').addEventListener('click', (event) => {
+  if (event.target && event.target.id === 'complaint_modal') {
+    closeComplaintModal();
+  }
+});
+
   document.getElementById('complaint_modal_cancel').addEventListener('click', () => {closeComplaintModal()});
   document.getElementById('complaint_modal_form').addEventListener('submit', (event) => {sendComplaint(event)});
   document.getElementById('create_desk_btn').addEventListener('click', () => {openCreateBoardModal()})
