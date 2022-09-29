@@ -18,6 +18,12 @@ document.getElementById('complaint_modal').addEventListener('click', (event) => 
     closeComplaintModal();
   }
 });
+document.getElementById('create_board_modal').addEventListener('click', (event) => {
+  if (event.target && event.target.id === 'create_board_modal') {
+    console.log('e');
+    closeModal();
+  }
+});
 
   document.getElementById('complaint_modal_cancel').addEventListener('click', () => {closeComplaintModal()});
   document.getElementById('complaint_modal_form').addEventListener('submit', (event) => {sendComplaint(event)});
