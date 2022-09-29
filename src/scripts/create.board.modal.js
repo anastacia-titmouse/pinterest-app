@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'; //?
 import { toggleBodyScroll } from "./desk";
 
 export const openModal = () => {
-    const modalEl = document.getElementById("create_board_modal") //finds button that creates board modal
+    const modalEl = document.getElementById("create_board_modal") 
 
     if (modalEl) {
         modalEl.style.display = 'block' 
@@ -14,21 +14,10 @@ export const openModal = () => {
 export const closeModal = () => {
   const modalEl = document.getElementById("create_board_modal")
   modalEl.style.display = 'none'
-  setModalError('') //?
+  setModalError('') 
   toggleBodyScroll(true);
   cleanForm()
 }
-
-
-// export const closeCreateBoardModalWindow = () => {
-//   const closeCreateBoardModalWindow = document.getElementById('create_board_modal');
-//   window.onclick = function (e) {
-//       if (e.target == closeCreateBoardModalWindow) {
-//         closeCreateBoardModalWindow.style.display = "none";
-//       }
-//   }
-// }
-
 
 export const setModalError = (errorText) => {
   const errorBlock = document.querySelector("#crete_board_modal__form-error")

@@ -47,15 +47,6 @@ export function hideSelectBoardModal() {
     toggleBodyScroll(true)
 }
 
-export const closeSelectBoardModalWindow = () => {
-    const hiddenModalEl = document.getElementById('select_board_modal');
-    window.onclick = function (e) {
-        if (e.target == hiddenModalEl) {
-            hideSelectBoardModal();
-        }
-    }
-}
-
 //cleans select options
 export function cleanSelectOptions() {
     const select = document.getElementById("select_board_modal_selector")

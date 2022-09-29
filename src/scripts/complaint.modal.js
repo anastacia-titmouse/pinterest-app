@@ -21,9 +21,9 @@ export const closeComplaintModal = () => {
     toggleBodyScroll(true);
 }
 
-/**
- * Отправляем данные по нажатию кнопки "Отправить" на бекенд
- */
+
+ //Отправляем данные по нажатию кнопки "Отправить" на бекенд
+
 export const sendComplaint = async(event) => {
     event.preventDefault();
     

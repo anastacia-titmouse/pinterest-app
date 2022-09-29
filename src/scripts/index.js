@@ -3,7 +3,7 @@ import { sendComplaint, closeComplaintModal } from "./complaint.modal";
 import { onDeskSelectorChanged, renderSelectOptions } from "./desk.selector";
 import {
   openModal as openCreateBoardModal,
-  closeModal as closeCreateBoardModal, onCreateDeskSubmit
+  closeModal as closeCreateBoardModal, onCreateDeskSubmit,
 } from './create.board.modal';
 import { hideSelectBoardModal, selectBoardModalFormSubmitHandler } from './select.desk.modal'
 
@@ -16,6 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('complaint_modal').addEventListener('click', (event) => {
   if (event.target && event.target.id === 'complaint_modal') {
     closeComplaintModal();
+  }
+});
+
+document.getElementById('create-board-modal-close').addEventListener('click', (event) => {
+  if (event.target && event.target.id === 'create-board-modal-close') {
+    closeCreateBoardModal();
+  }
+});
+
+document.getElementById('select_board_modal').addEventListener('click', (event) => {
+  if (event.target && event.target.id === 'select_board_modal') {
+    hideSelectBoardModal();
   }
 });
 
