@@ -1,21 +1,16 @@
 import { renderActiveDesk, activateDesk } from './desk';
-import { sendComplaint, closeComplaintModal, closeComplaintModalWindow } from "./complaint.modal";
+import { sendComplaint, closeComplaintModal } from "./complaint.modal";
 import { onDeskSelectorChanged, renderSelectOptions } from "./desk.selector";
 import {
   openModal as openCreateBoardModal,
-  closeModal as closeCreateBoardModal, onCreateDeskSubmit, closeCreateModalWindow
+  closeModal as closeCreateBoardModal, onCreateDeskSubmit
 } from './create.board.modal';
-import { hideSelectBoardModal, selectBoardModalFormSubmitHandler, closeSelectBoardModalWindow } from './select.desk.modal'
+import { hideSelectBoardModal, selectBoardModalFormSubmitHandler } from './select.desk.modal'
 
 // init
 document.addEventListener('DOMContentLoaded', () => {
   renderSelectOptions();
   renderActiveDesk().catch(error => {console.log(error)});
-
-  window.onclick = () => {closeComplaintModalWindow()};
-  window.onclick = () => {closeCreateModalWindow()};
-  window.onclick = () => {closeSelectBoardModalWindow()};
-
 
   document.getElementById('complaint_modal_cancel').addEventListener('click', () => {closeComplaintModal()});
   document.getElementById('complaint_modal_form').addEventListener('submit', (event) => {sendComplaint(event)});
