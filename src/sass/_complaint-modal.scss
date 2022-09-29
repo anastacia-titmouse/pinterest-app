@@ -17,10 +17,12 @@
         position: relative;
         display: grid;
         width: 540px;
+        height: 700px;
         grid-template-columns: 1fr;
         grid-template-rows: max-content auto max-content;
         padding: 20px;
         border-radius:30px;
+        border: 1px solid #7CEEFF;
 
         .complaint-modal__list {
             height: 100%;

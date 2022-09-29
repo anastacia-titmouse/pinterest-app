@@ -1,14 +1,24 @@
+import { toggleBodyScroll } from "./desk";
+
+
+
+
 export const showComplaintModal = (pinId) => {
     const complaintModalEl = document.getElementById('complaint_modal');
     complaintModalEl.style.display = 'flex';
     
     const hiddenInputEl = document.getElementById('complaint_modal_hidden_pin_id');
     hiddenInputEl.value = pinId
+
+
+    toggleBodyScroll(false);
 }
 
 export const closeComplaintModal = () => {
     const complaintModalEl = document.getElementById('complaint_modal');
     complaintModalEl.style.display = 'none';
+
+    toggleBodyScroll(true);
 }
 
 /**
