@@ -1,5 +1,5 @@
 import {getDesksModels, addDesksModel} from './desk'
-import { v4 as uuidv4 } from 'uuid'; //?
+import { v4 as uuidv4 } from 'uuid'; 
 import { toggleBodyScroll } from "./desk";
 
 export const openModal = () => {

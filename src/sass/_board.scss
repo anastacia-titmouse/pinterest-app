@@ -43,12 +43,18 @@
         display: grid;
         grid-template-columns: 1fr 2fr;
         align-items: center;
+        margin-left: 15px;
     }
     &__avatar-wrapper {
         width: 50px;
         height: 50px;
         border-radius: 50%;
         overflow: hidden;
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 10px 0.5px #39C0D4;
+        }
     }
     &__avatar {
         width: 50px;
@@ -63,5 +69,9 @@
         font-weight: 400;
         font-size: 14px;
         letter-spacing: 0.06em;
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
     }
 }

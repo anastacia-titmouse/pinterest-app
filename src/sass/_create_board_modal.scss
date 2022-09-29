@@ -72,12 +72,17 @@
         border-radius:10px;
         border: 1px solid #7CEEFF;
         height: 40px;
+        width: 450px;
         &::placeholder {
           color:black;
+          padding: 20px;
         }
       }
       #crete_board_modal__form {
-        text-align:center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
 
         #crete_board_modal__form-error{
           color:rgb(254, 78, 78);

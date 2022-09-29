@@ -55,6 +55,16 @@
         font-size: 15px;
         letter-spacing: 0.12em;
       }
+
+      &.delete-pin {
+        background: linear-gradient(180deg, #1797A8 0%, #00C2CB 100%);
+        opacity: 85%;
+        font-family: 'Century Gothic';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: 0.12em;
+      }
     }
   }
 }

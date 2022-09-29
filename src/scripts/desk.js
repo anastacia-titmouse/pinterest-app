@@ -170,8 +170,8 @@ export function createPinElement(pinData, deskId) {         //creates pins
     }
   } else {  
     const btnClose = document.createElement('button')
-    btnClose.classList.add('pin-actions__delete-btn')
-    btnClose.innerHTML = "&times;"
+    btnClose.classList.add('pin-btn', 'delete-pin')
+    btnClose.innerHTML = "Удалить"
     btnClose.onclick = () => {
       deletePin(deskId, pinData.id)
     }
